@@ -1,0 +1,67 @@
+{
+	"name": "api-client-sshoc",
+	"version": "0.0.0",
+	"license": "MIT",
+	"repository": {
+		"url": "https://github.com/acdh-oeaw/api-client-sshoc"
+	},
+	"files": [
+		"dist"
+	],
+	"type": "module",
+	"sideEffects": false,
+	"main": "./dist/index.mjs",
+	"exports": {
+		".": "./dist/index.mjs"
+	},
+	"scripts": {
+		"build": "tsdown",
+		"changeset:add": "changeset add",
+		"changeset:status": "changeset status --verbose",
+		"ci:release": "changeset publish",
+		"ci:version": "changeset version && oxfmt --write CHANGELOG.md",
+		"format:check": "oxfmt --check",
+		"format:fix": "oxfmt --write",
+		"lint:check": "oxlint",
+		"lint:fix": "oxlint --fix",
+		"prepare": "run-s setup",
+		"prepublishOnly": "run-s validate build",
+		"setup": "is-in-ci || simple-git-hooks",
+		"test": "exit 0",
+		"types:check": "tsc --noEmit",
+		"validate": "run-p format:check lint:check types:check test"
+	},
+	"devDependencies": {
+		"@acdh-oeaw/tsconfig-lib": "^1.3.0",
+		"@dotenvx/dotenvx": "^1.51.4",
+		"is-in-ci": "^2.0.0",
+		"lint-staged": "^16.2.7",
+		"npm-run-all2": "^8.0.4",
+		"oxfmt": "^0.26.0",
+		"oxlint": "^1.41.0",
+		"simple-git-hooks": "^2.13.1",
+		"tsdown": "^0.20.0-beta.4",
+		"typescript": "^5.9.3"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "pnpm exec lint-staged"
+	},
+	"lint-staged": {
+		"*.ts": [
+			"oxlint --fix",
+			"oxfmt --write"
+		],
+		"*": "oxfmt --no-error-on-unmatched-pattern --write"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": "^24",
+			"onFail": "download"
+		}
+	},
+	"engines": {
+		"node": ">=24"
+	},
+	"packageManager": "pnpm@10.28.1"
+}

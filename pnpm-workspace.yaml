@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - simple-git-hooks
+
+shellEmulator: true
+
+strictDepBuilds: true
