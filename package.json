@@ -1,5 +1,5 @@
 {
-	"name": "api-client-sshoc",
+	"name": "@acdh-oeaw/api-client-sshoc",
 	"version": "0.0.0",
 	"license": "MIT",
 	"repository": {
@@ -31,9 +31,17 @@
 		"types:check": "tsc --noEmit",
 		"validate": "run-p format:check lint:check types:check test"
 	},
+	"dependencies": {
+		"@acdh-oeaw/lib": "^1.0.5"
+	},
 	"devDependencies": {
 		"@acdh-oeaw/tsconfig-lib": "^1.3.0",
+		"@acdh-oeaw/validate-env": "^0.2.1",
+		"@arethetypeswrong/core": "^0.18.2",
+		"@changesets/changelog-github": "^0.5.2",
+		"@changesets/cli": "^2.29.8",
 		"@dotenvx/dotenvx": "^1.51.4",
+		"@types/node": "^25.0.10",
 		"is-in-ci": "^2.0.0",
 		"lint-staged": "^16.2.7",
 		"npm-run-all2": "^8.0.4",
@@ -41,7 +49,8 @@
 		"oxlint": "^1.41.0",
 		"simple-git-hooks": "^2.13.1",
 		"tsdown": "^0.20.0-beta.4",
-		"typescript": "^5.9.3"
+		"typescript": "^5.9.3",
+		"valibot": "^1.2.0"
 	},
 	"simple-git-hooks": {
 		"pre-commit": "pnpm exec lint-staged"
