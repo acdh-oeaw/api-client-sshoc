@@ -3,6 +3,7 @@
 	"extends": "@acdh-oeaw/tsconfig-lib",
 	"compilerOptions": {
 		"declaration": false,
+		"erasableSyntaxOnly": false,
 		"noPropertyAccessFromIndexSignature": false
 	},
 	"exclude": ["dist", "node_modules"]

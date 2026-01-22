@@ -4,6 +4,7 @@
 	"compilerOptions": {
 		"allowJs": false,
 		"checkJs": false,
+		"erasableSyntaxOnly": false,
 		"noPropertyAccessFromIndexSignature": false
 	},
 	"exclude": ["dist", "node_modules"]

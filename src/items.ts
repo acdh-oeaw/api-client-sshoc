@@ -143,6 +143,14 @@ export namespace Items {
 
 		export type Property = ConceptProperty | ValueProperty;
 
+		export function isConceptProperty(value: Property): value is ConceptProperty {
+			return value.type.type === "concept";
+		}
+
+		export function isValueProperty(value: Property): value is ValueProperty {
+			return value.type.type !== "concept";
+		}
+
 		export interface ItemBase {
 			category: Items.Category;
 			id: number;
@@ -199,7 +207,11 @@ export namespace Items {
 			order?: Array<SortOrder>;
 			/** @default 1 */
 			page?: number;
-			/** @default 25 */
+			/**
+			 * Must be lower than or equal to 100.
+			 *
+			 * @default 25
+			 */
 			perpage?: number;
 			q?: string;
 		}
